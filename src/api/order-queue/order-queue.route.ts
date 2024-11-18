@@ -8,6 +8,11 @@ import { ApiTags } from '@nestjs/swagger';
 export class OrderQueueRoute {
   constructor(private readonly orderQueueController: OrderQueueController) {}
 
+  @Post()
+  async create(@Body() dto: CreateOrderQueueDto) {
+    return await this.orderQueueController.createOrderQueueItem(dto);
+  }
+  
   @Get()
   async getAll() {
     try {
@@ -20,5 +25,5 @@ export class OrderQueueRoute {
     catch(error) {
       throw new InternalServerErrorException(error.message);
     }
-  }
+  }  
 }
