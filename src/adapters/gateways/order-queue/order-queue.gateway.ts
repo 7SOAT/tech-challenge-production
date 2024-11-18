@@ -1,5 +1,7 @@
+import { Injectable } from "@nestjs/common";
 import { OrderQueueRepository } from "src/externals/repositories/order-queue.repository";
 
+@Injectable()
 export class OrderQueueGateway {
   constructor(private _orderQueueRepository: OrderQueueRepository) {}
 

@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: tc-production-ms-app
+    restart: always
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    expose:
+      - "80"
+    env_file:
+      - ".env"
+    ports:
+      - "4001:80"
+    depends_on:
+      - db
+    volumes:
+      - ./src:/usr/app/src
+    
+  db:
+    container_name: tc-production-ms-db
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db
+
+volumes:
+  data:
