@@ -1,6 +1,6 @@
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
-import { OrderQueueDocument } from "../schemas/order.schema";
+import { OrderQueueDocument, OrderQueueItemModel } from "../schemas/order.schema";
 import { UUID } from "crypto";
 
 export class OrderQueueRepository {
@@ -9,16 +9,16 @@ export class OrderQueueRepository {
     private readonly orderQueueSchema: Model<OrderQueueDocument>,
   ) {}
 
-  async addOrderInQueue(orderId: UUID) {
-    const firstOrder = await this.orderQueueSchema.findOne().sort({ orderPosition: -1 });
-    const orderPosition = firstOrder?.orderPosition ? firstOrder.orderPosition + 1 : 0; 
+  async addOrderInQueue(orderId: UUID): Promise<OrderQueueItemModel> {
+    const firstOrder = await this.orderQueueSchema.findOne().sort({ positionInQueue: -1 });
+    const positionInQueue = firstOrder?.positionInQueue ? firstOrder.positionInQueue + 1 : 1; 
     return await this.orderQueueSchema.create({
       orderId,
-      orderPosition
+      positionInQueue
     });
   }
 
-  async getAllOrdersInQueue() {
+  async getAllOrdersInQueue(): Promise<Array<OrderQueueItemModel>> {
     return await this.orderQueueSchema.find();
   }  
 }
