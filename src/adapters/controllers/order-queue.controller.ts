@@ -15,4 +15,10 @@ export class OrderQueueController {
   async getAllOrdersInQueue() {
     return await this.orderQueueUseCase.getAll();
   }
+
+  async syncOrders() {
+    const ordersFromProvider = await this.orderQueueUseCase.getOrdersFromMicroservice();
+    const ordersInQueue = await this.orderQueueUseCase.getAll();
+
+  }
 }

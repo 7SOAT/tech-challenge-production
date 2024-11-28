@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import { RepositoryModule } from './externals/repositories/repository.module';
+import { RepositoryModule } from './externals/mongoose/repositories/repository.module';
 import { RouteModule } from './api/route.module';
 import { ControllersModule } from './adapters/controllers/controllers.module';
 import { OrderQueueRoute } from './api/order-queue/order-queue.route';
+import { OrderMicroserviceModule } from './externals/providers/order-microservice/order-microservice.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { OrderQueueRoute } from './api/order-queue/order-queue.route';
       controllers: [OrderQueueRoute],
       exports: [],
     }),
+    OrderMicroserviceModule,
   ],
   controllers: [],
   providers: [],

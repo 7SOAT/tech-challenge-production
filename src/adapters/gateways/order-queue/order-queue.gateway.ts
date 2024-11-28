@@ -2,8 +2,8 @@ import { Injectable } from "@nestjs/common";
 import { UUID } from "crypto";
 import { OrderQueueItem } from "src/core/entities/OrderQueueItem";
 import { OrderQueueGatewayInterface } from "src/core/usecases/ports/order-queue.gateway";
-import { OrderQueueItemMapper } from "src/externals/mappers/order-queue-item.mapper";
-import { OrderQueueRepository } from "src/externals/repositories/order-queue.repository";
+import { OrderQueueItemMapper } from "src/externals/mongoose/mappers/order-queue-item.mapper";
+import { OrderQueueRepository } from "src/externals/mongoose/repositories/order-queue.repository";
 
 @Injectable()
 export class OrderQueueGateway implements OrderQueueGatewayInterface {

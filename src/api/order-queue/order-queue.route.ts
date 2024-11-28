@@ -15,7 +15,7 @@ export class OrderQueueRoute {
   
   @Get()
   async getAll() {
-    try {
+    try {      
       const ordersInQueue = await this.orderQueueController.getAllOrdersInQueue();
 
       if(!ordersInQueue) return new NotFoundException(`There are no orders in production queue`);
@@ -25,5 +25,16 @@ export class OrderQueueRoute {
     catch(error) {
       throw new InternalServerErrorException(error.message);
     }
-  }  
+  }
+  
+  @Get()
+  async sync() {
+    try {
+      const ordersInQueue = await this.orderQueueController.syncOrders();
+      return ordersInQueue;
+    }
+    catch(error) {
+      throw new InternalServerErrorException(error.message);
+    }
+  }
 }
