@@ -36,4 +36,12 @@ export class OrderQueueRepository implements OrderQueueRepositoryInterface {
       throw new Error(`[OrderQueueRepository][getAllOrdersInQueue]: ${error}`);
     }    
   }  
+
+  async removeFromQueue(orderId: UUID): Promise<void> {
+    try {
+      await this.orderQueueSchema.deleteOne({ orderId });
+    } catch (error) {
+      throw new Error(`[OrderQueueRepository][removeFromQueue]: ${error}`);
+    }
+  }
 }

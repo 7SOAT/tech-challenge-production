@@ -27,8 +27,11 @@ export class OrderQueueUseCase {
     }
   }
 
-  // async getOrdersFromMicroservice(): Promise<Array<OrderQueueItem>> {
-  //   const ordersFromProvider = await this.orderGateway.getOrdersFromProvider();
-  //   return ordersFromProvider;
-  // }
+  async removeFromQueue(orderId: UUID): Promise<void> {
+    try {
+      await this.orderQueueGateway.delete(orderId);
+    } catch (error) {
+      throw new Error(`[OrderQueueUseCase][removeFromQueue]: ${error}`);
+    }
+  }
 }

@@ -25,4 +25,12 @@ export class OrderQueueGateway implements OrderQueueGatewayInterface {
       throw new Error(`[OrderQueueGateway][findAll]: ${ error }`);
     }
   }
+
+  async delete(orderId: UUID): Promise<any> {
+    try {
+      await this._orderQueueRepository.removeFromQueue(orderId);
+    } catch(error) {
+      throw new Error(`[OrderQueueGateway][delete]: ${ error }`);
+    }
+  }
 }

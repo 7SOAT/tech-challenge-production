@@ -1,5 +1,4 @@
 import { Injectable } from "@nestjs/common";
-import { CreateOrderQueueDto } from "src/api/dto/create-order-queue";
 import { OrderQueueUseCase } from "src/core/usecases/order-queue.usecase";
 import { OrderQueueGateway } from "../gateways/order-queue/order-queue.gateway";
 import { OrderQueueRepositoryInterface } from "./dtos/order-queue.repository";
@@ -7,6 +6,7 @@ import { OrderQueueItemPresenter } from "../presenters/order-queue.presenter";
 import { OrderProviderInterface } from "./dtos/order.provider";
 import { OrderGateway } from "../gateways/order/order.gateway";
 import { OrderUseCase } from "src/core/usecases/order.usecase";
+import { UUID } from "crypto";
 
 @Injectable()
 export class OrderQueueController {
@@ -15,7 +15,7 @@ export class OrderQueueController {
     private _orderProvider: OrderProviderInterface
   ) {}
 
-  async createOrderQueueItem({ orderId }: CreateOrderQueueDto) {
+  async createOrderQueueItem(orderId: UUID) {
     try {
       const orderQueueGateway = new OrderQueueGateway(this._orderQueueRepository);
       const orderQueueUseCase = new OrderQueueUseCase(orderQueueGateway);    
@@ -57,5 +57,21 @@ export class OrderQueueController {
     catch(error) {
       throw new Error(`[OrderQueueController][syncOrdersInQueue]: ${error}`);
     }
+  }
+
+  async finishOrder(orderId: UUID) {
+    try {
+      const orderGateway = new OrderGateway(this._orderProvider);
+      const orderUseCase = new OrderUseCase(orderGateway);
+      const result = await orderUseCase.setOrderStatusAsFinished(orderId);
+
+      if (result) {
+        const orderQueueGateway = new OrderQueueGateway(this._orderQueueRepository);
+        const orderQueueUseCase = new OrderQueueUseCase(orderQueueGateway);
+        await orderQueueUseCase.removeFromQueue(orderId);
+      }
+    } catch (error) {
+      throw new Error(`[OrderQueueController][finishOrder]: ${error}`);
+    }    
   }
 }

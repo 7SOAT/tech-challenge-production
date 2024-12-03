@@ -1,7 +1,8 @@
-import { Body, Controller, Get, InternalServerErrorException, NotFoundException, Post } from '@nestjs/common';
-import { CreateOrderQueueDto } from '../dto/create-order-queue';
+import { Body, Controller, Get, InternalServerErrorException, NotFoundException, Post, Put } from '@nestjs/common';
+import { CreateOrderQueueDto } from '../dtos/create-order-queue';
 import { OrderQueueController } from 'src/adapters/controllers/order-queue.controller';
 import { ApiTags } from '@nestjs/swagger';
+import { FinishOrderDto } from '../dtos/finish-order';
 
 @ApiTags('orders-queue')
 @Controller('orders-queue')
@@ -10,7 +11,7 @@ export class OrderQueueRoute {
 
   @Post()
   async create(@Body() dto: CreateOrderQueueDto) {
-    return await this.orderQueueController.createOrderQueueItem(dto);
+    return await this.orderQueueController.createOrderQueueItem(dto.orderId);
   }
   
   @Get()
@@ -32,6 +33,17 @@ export class OrderQueueRoute {
     try {
       const ordersInQueue = await this.orderQueueController.syncOrdersInQueue();
       return ordersInQueue;
+    }
+    catch(error) {
+      throw new InternalServerErrorException(error.message);
+    }
+  }
+
+  @Put("/finish")
+  async finishOrder(@Body() dto: FinishOrderDto) {
+    try {
+      const finishedOrder = await this.orderQueueController.finishOrder(dto.orderId);
+      return finishedOrder;
     }
     catch(error) {
       throw new InternalServerErrorException(error.message);
