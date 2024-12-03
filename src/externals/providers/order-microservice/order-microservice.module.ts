@@ -1,16 +1,20 @@
-import { HttpModule } from "@nestjs/axios";
+import { HttpModule, HttpService } from "@nestjs/axios";
 import { Module } from "@nestjs/common";
-import { ConfigModule } from "@nestjs/config";
+import { ConfigModule, ConfigService } from "@nestjs/config";
 import { OrderMicroserviceProvider } from "./order-microservice.provider";
 
 @Module({
   imports: [
     HttpModule,
-    ConfigModule.forRoot({
-      envFilePath: '.env',
-    })
+    ConfigModule
   ],
-  providers: [OrderMicroserviceProvider],
+  providers: [{
+    provide: OrderMicroserviceProvider,
+    useFactory: (httpService: HttpService, configService: ConfigService) => {
+      return new OrderMicroserviceProvider(httpService, configService);
+    },
+    inject: [HttpService, ConfigService]
+  }],
   exports: [OrderMicroserviceProvider]
 })
 export class OrderMicroserviceModule {}

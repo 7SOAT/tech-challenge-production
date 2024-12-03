@@ -1,5 +1,5 @@
-import { OrderQueueItem } from "src/core/entities/OrderQueueItem";
+import { Order } from "src/core/entities/Order";
 
 export interface OrderGatewayInterface {
-  getOrdersFromProvider(): Promise<Array<OrderQueueItem>>;
+  getOrdersFromProvider(): Promise<Array<Order>>;
 }

@@ -1,7 +1,7 @@
 import { UUID } from "crypto";
 
 export interface OrderMSResponseDto {
-  id: UUID;
+  _id: UUID;
   status: string;
   totalValue: number;
   products: Array<string>;

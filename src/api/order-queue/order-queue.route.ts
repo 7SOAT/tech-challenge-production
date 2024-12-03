@@ -27,14 +27,14 @@ export class OrderQueueRoute {
     }
   }
   
-  // @Get("/sync")
-  // async sync() {
-  //   try {
-  //     const ordersInQueue = await this.orderQueueController.syncOrders();
-  //     return ordersInQueue;
-  //   }
-  //   catch(error) {
-  //     throw new InternalServerErrorException(error.message);
-  //   }
-  // }
+  @Get("/sync")
+  async sync() {
+    try {
+      const ordersInQueue = await this.orderQueueController.syncOrdersInQueue();
+      return ordersInQueue;
+    }
+    catch(error) {
+      throw new InternalServerErrorException(error.message);
+    }
+  }
 }
