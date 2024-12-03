@@ -1,14 +1,15 @@
-import { DynamicModule } from '@nestjs/common';
-import { ModuleConfig } from 'src/core/type/module.config';
+import { Module } from "@nestjs/common";
+import { MongooseModule } from "@nestjs/mongoose";
+import { OrderQueueSchema } from "../schemas/order.schema";
+import { OrderQueueRepository } from "./order-queue.repository";
 
-export class RepositoryModule {
-  static register(config: ModuleConfig): DynamicModule {
-    return {
-      module: RepositoryModule,
-      imports: [...config.imports],
-      providers: [...config.providers],
-      controllers: [...config.controllers],
-      exports: [...config.exports],
-    };
-  }
-}
+@Module({
+  imports: [
+    MongooseModule.forFeature([
+      { name: 'OrderQueueSchema', schema: OrderQueueSchema },
+    ])
+  ,],
+  providers: [OrderQueueRepository],
+  exports: [OrderQueueRepository]
+})
+export class RepositoryModule {  }

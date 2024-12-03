@@ -8,7 +8,7 @@ import { OrderMicroserviceProvider } from "./order-microservice.provider";
     HttpModule,
     ConfigModule.forRoot({
       envFilePath: '.env',
-    }),
+    })
   ],
   providers: [OrderMicroserviceProvider],
   exports: [OrderMicroserviceProvider]

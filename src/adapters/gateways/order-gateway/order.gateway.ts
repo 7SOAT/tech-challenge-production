@@ -1,8 +1,10 @@
+import { Injectable } from "@nestjs/common";
 import { OrderQueueItem } from "src/core/entities/OrderQueueItem";
 import { OrderGatewayInterface } from "src/core/usecases/ports/order.gateway";
 import { OrderMicroserviceProvider } from "src/externals/providers/order-microservice/order-microservice.provider";
 
-export class OrderGateway implements OrderGatewayInterface {
+@Injectable()
+export class OrderGateway {
   constructor(
     private orderProvider: OrderMicroserviceProvider
   ) {}

@@ -1,10 +1,9 @@
 import { HttpService } from "@nestjs/axios";
-import { Injectable } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { OrderMSResponseDto } from "./dtos/orders-response.dto";
 import { lastValueFrom } from "rxjs";
+import { Injectable } from "@nestjs/common";
 
-@Injectable()
 export class OrderMicroserviceProvider {
   constructor(
     private readonly httpService: HttpService,
@@ -13,7 +12,7 @@ export class OrderMicroserviceProvider {
 
   async getAllOrders(): Promise<Array<OrderMSResponseDto>> {
     try {
-      const url = `${this.configService.get("ORDER_MS_HOST")}/orders`;
+      const url = `${this.configService.get<string>("ORDER_MS_HOST")}/orders`;
       const response = lastValueFrom(this.httpService.get<Array<OrderMSResponseDto>>(url));
 
       return (await response).data;

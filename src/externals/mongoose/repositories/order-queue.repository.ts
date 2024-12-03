@@ -2,23 +2,38 @@ import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
 import { OrderQueueDocument, OrderQueueItemModel } from "../schemas/order.schema";
 import { UUID } from "crypto";
+import { OrderQueueRepositoryInterface } from "src/adapters/controllers/dtos/order-queue.repository";
+import { OrderQueueItem } from "src/core/entities/OrderQueueItem";
+import { OrderQueueItemMapper } from "../mappers/order-queue-item.mapper";
 
-export class OrderQueueRepository {
+export class OrderQueueRepository implements OrderQueueRepositoryInterface {
   constructor(
     @InjectModel('OrderQueueSchema')
     private readonly orderQueueSchema: Model<OrderQueueDocument>,
   ) {}
 
-  async addOrderInQueue(orderId: UUID): Promise<OrderQueueItemModel> {
-    const firstOrder = await this.orderQueueSchema.findOne().sort({ positionInQueue: -1 });
-    const positionInQueue = firstOrder?.positionInQueue ? firstOrder.positionInQueue + 1 : 1; 
-    return await this.orderQueueSchema.create({
-      orderId,
-      positionInQueue
-    });
+  async addOrderInQueue(orderId: UUID): Promise<OrderQueueItem> {
+    try {
+      const firstOrder = await this.orderQueueSchema.findOne().sort({ positionInQueue: -1 });
+      const positionInQueue = firstOrder?.positionInQueue ? firstOrder.positionInQueue + 1 : 1; 
+      const result = await this.orderQueueSchema.create({
+        orderId,
+        positionInQueue
+      });
+      return OrderQueueItemMapper.toDomain(result);
+    }
+    catch(error) {
+      throw new Error(`[OrderQueueRepository][addOrderInQueue]: ${error}`);
+    }
   }
 
-  async getAllOrdersInQueue(): Promise<Array<OrderQueueItemModel>> {
-    return await this.orderQueueSchema.find();
+  async getAllOrdersInQueue(): Promise<Array<OrderQueueItem>> {
+    try {
+      const result = await this.orderQueueSchema.find();
+      return result.map(item => OrderQueueItemMapper.toDomain(item));
+    }
+    catch(error) {
+      throw new Error(`[OrderQueueRepository][getAllOrdersInQueue]: ${error}`);
+    }    
   }  
 }

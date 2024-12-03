@@ -1,27 +1,28 @@
 import { Injectable } from "@nestjs/common";
 import { UUID } from "crypto";
+import { OrderQueueRepositoryInterface } from "src/adapters/controllers/dtos/order-queue.repository";
 import { OrderQueueItem } from "src/core/entities/OrderQueueItem";
 import { OrderQueueGatewayInterface } from "src/core/usecases/ports/order-queue.gateway";
-import { OrderQueueItemMapper } from "src/externals/mongoose/mappers/order-queue-item.mapper";
-import { OrderQueueRepository } from "src/externals/mongoose/repositories/order-queue.repository";
 
 @Injectable()
 export class OrderQueueGateway implements OrderQueueGatewayInterface {
-  constructor(private _orderQueueRepository: OrderQueueRepository) {}
+  constructor(private _orderQueueRepository: OrderQueueRepositoryInterface) {}
 
   async create(orderId: UUID): Promise<OrderQueueItem> {
-    const result = await this._orderQueueRepository.addOrderInQueue(orderId);
-    return OrderQueueItemMapper.toDomain(result);
+    try {
+      const result = await this._orderQueueRepository.addOrderInQueue(orderId);
+      return result;
+    } catch(error) {
+      throw new Error(`[OrderQueueGateway][create]: ${ error }`);
+    }
   }
 
   async findAll(): Promise<Array<OrderQueueItem>> {
     try {
-      const result = (await this._orderQueueRepository.getAllOrdersInQueue())
-        .map(item => OrderQueueItemMapper.toDomain(item));
-
-      return result;
+      const ordersInQueue = await this._orderQueueRepository.getAllOrdersInQueue()      
+      return ordersInQueue;
     } catch (error) {
-      throw new Error(`Error finding all orders queue: ${ error }`);
+      throw new Error(`[OrderQueueGateway][findAll]: ${ error }`);
     }
   }
 }
