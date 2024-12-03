@@ -1,11 +1,11 @@
 import { Injectable } from "@nestjs/common";
-import { OrderQueueUseCase } from "src/core/usecases/order-queue.usecase";
+import { OrderQueueUseCase } from "../../../src/core/usecases/order-queue.usecase";
 import { OrderQueueGateway } from "../gateways/order-queue/order-queue.gateway";
 import { OrderQueueRepositoryInterface } from "./dtos/order-queue.repository";
 import { OrderQueueItemPresenter } from "../presenters/order-queue.presenter";
 import { OrderProviderInterface } from "./dtos/order.provider";
 import { OrderGateway } from "../gateways/order/order.gateway";
-import { OrderUseCase } from "src/core/usecases/order.usecase";
+import { OrderUseCase } from "../../../src/core/usecases/order.usecase";
 import { UUID } from "crypto";
 
 @Injectable()

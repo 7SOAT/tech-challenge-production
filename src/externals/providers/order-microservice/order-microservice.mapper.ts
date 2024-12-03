@@ -1,4 +1,4 @@
-import { Order } from "src/core/entities/Order";
+import { Order } from "../../../core/entities/order";
 import { OrderMSResponseDto } from "./dtos/orders-response.dto";
 
 export class OrderMicroserviceMapper {

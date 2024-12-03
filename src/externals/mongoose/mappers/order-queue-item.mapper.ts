@@ -1,4 +1,4 @@
-import { OrderQueueItem } from "src/core/entities/OrderQueueItem";
+import { OrderQueueItem } from "../../../core/entities/order-queue-item";
 import { OrderQueueItemModel } from '../schemas/order.schema';
 
 export class OrderQueueItemMapper {

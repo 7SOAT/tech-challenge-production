@@ -1,9 +1,9 @@
 import { Injectable } from "@nestjs/common";
 import { UUID } from "crypto";
-import { OrderProviderInterface } from "src/adapters/controllers/dtos/order.provider";
-import { Order } from "src/core/entities/Order";
-import { OrderQueueItem } from "src/core/entities/OrderQueueItem";
-import { OrderGatewayInterface } from "src/core/usecases/ports/order.gateway";
+import { OrderProviderInterface } from "../../../../src/adapters/controllers/dtos/order.provider";
+import { Order } from "../../../core/entities/order";
+import { OrderQueueItem } from "../../../core/entities/order-queue-item";
+import { OrderGatewayInterface } from "../../../../src/core/usecases/ports/order.gateway";
 
 @Injectable()
 export class OrderGateway implements OrderGatewayInterface {

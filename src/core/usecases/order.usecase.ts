@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { OrderGatewayInterface } from "./ports/order.gateway";
-import { Order } from "../entities/Order";
+import { Order } from "../entities/order";
 import { UUID } from "crypto";
 
 @Injectable()

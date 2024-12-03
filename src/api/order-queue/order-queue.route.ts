@@ -1,6 +1,6 @@
 import { Body, Controller, Get, InternalServerErrorException, NotFoundException, Post, Put } from '@nestjs/common';
 import { CreateOrderQueueDto } from '../dtos/create-order-queue';
-import { OrderQueueController } from 'src/adapters/controllers/order-queue.controller';
+import { OrderQueueController } from '../../../src/adapters/controllers/order-queue.controller';
 import { ApiTags } from '@nestjs/swagger';
 import { FinishOrderDto } from '../dtos/finish-order';
 
@@ -19,12 +19,12 @@ export class OrderQueueRoute {
     try {      
       const ordersInQueue = await this.orderQueueController.getAllOrdersInQueue();
 
-      if(!ordersInQueue) return new NotFoundException(`There are no orders in production queue`);
+      if(!ordersInQueue?.length) throw new NotFoundException(`There are no orders in production queue`);
 
       return ordersInQueue;
     }
     catch(error) {
-      throw new InternalServerErrorException(error.message);
+      throw error;
     }
   }
   
