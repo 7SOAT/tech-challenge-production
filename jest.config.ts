@@ -7,7 +7,7 @@ const config: Config = {
   transform: {
     '^.+\\.ts?$': 'ts-jest',
   },
-  moduleFileExtensions: ['ts', 'js'],
+  moduleFileExtensions: ['ts', 'js'],  
 };
 
 export default config;
