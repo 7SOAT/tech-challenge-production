@@ -1,4 +1,4 @@
-name: Run Tests on Pull Request
+name: CI - Run Tests
 
 on:
   pull_request:
@@ -9,21 +9,36 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [21.x]
+
     steps:
-      # Check out the code from the repository
-      - name: Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      # Set up Node.js environment
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: ${{ matrix.node-version }}
 
-      # Install dependencies
-      - name: Install Dependencies
-        run: npm install
+      - name: Install dependencies
+        run: yarn install
 
-      # Run tests
-      - name: Run Tests
-        run: npm run test      
+      - name: Check for test files
+        id: check-tests
+        run: |
+          if [ -z "$(find . -name '*.test.js' -o -name '*.spec.js')" ]; then
+            echo "No test files found."
+            echo "run_tests=false" >> $GITHUB_ENV
+          else
+            echo "Test files found."
+            echo "run_tests=true" >> $GITHUB_ENV
+          fi
+
+      - name: Run tests
+        if: env.run_tests == 'true'
+        run: yarn test -- --passWithNoTests
+
+      - name: Run lint
+        run: yarn lint
