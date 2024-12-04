@@ -1,6 +1,6 @@
 import { defineFeature, loadFeature } from 'jest-cucumber';
 import { OrderQueueRepositoryInterface } from '../../../src/adapters/controllers/dtos/order-queue.repository';
-import { OrderQueueItem } from '../../../src/core/entities/order-queue-item';
+import { OrderQueueItem } from '../../../src/core/entities/OrderQueueItem';
 import { OrderQueueGateway } from '../../../src/adapters/gateways/order-queue/order-queue.gateway';
 import { UUID } from 'crypto';
 

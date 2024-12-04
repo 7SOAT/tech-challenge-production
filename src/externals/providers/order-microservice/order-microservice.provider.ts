@@ -2,7 +2,7 @@ import { HttpService } from "@nestjs/axios";
 import { ConfigService } from "@nestjs/config";
 import { OrderMSResponseDto } from "./dtos/orders-response.dto";
 import { lastValueFrom } from "rxjs";
-import { Order } from "../../../core/entities/order";
+import { Order } from "../../../core/entities/Order";
 import { OrderMicroserviceMapper } from "./order-microservice.mapper";
 import { OrderProviderInterface } from "../../../../src/adapters/controllers/dtos/order.provider";
 import { Inject } from "@nestjs/common";

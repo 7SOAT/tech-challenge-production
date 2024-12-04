@@ -1,6 +1,6 @@
 import { UUID } from "crypto";
 import { defineFeature, loadFeature } from "jest-cucumber";
-import { OrderQueueItem } from "../../../src/core/entities/order-queue-item";
+import { OrderQueueItem } from "../../../src/core/entities/OrderQueueItem";
 
 const feature = loadFeature('./test/entity/features/order-queue-item.entity.feature');
 

@@ -1,9 +1,9 @@
 import { defineFeature, loadFeature } from 'jest-cucumber';
 
 import { OrderProviderInterface } from '../../../src/adapters/controllers/dtos/order.provider';
-import { Order } from '../../../src/core/entities/order';
 import { OrderGateway } from '../../../src/adapters/gateways/order/order.gateway';
 import { UUID } from 'crypto';
+import { Order } from '../../../src/core/entities/Order';
 
 const feature = loadFeature('./test/gateways/features/order.gateway.feature');
 

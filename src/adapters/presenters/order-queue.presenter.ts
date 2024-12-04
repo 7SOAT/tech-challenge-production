@@ -1,4 +1,4 @@
-import { OrderQueueItem } from "../../core/entities/order-queue-item";
+import { OrderQueueItem } from "../../core/entities/OrderQueueItem";
 
 export class OrderQueueItemPresenter {
   static toJson(orderQueueItem: OrderQueueItem) {
