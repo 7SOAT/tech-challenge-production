@@ -3,7 +3,7 @@ import { Model } from "mongoose";
 import { OrderQueueDocument, OrderQueueItemModel } from "../schemas/order.schema";
 import { UUID } from "crypto";
 import { OrderQueueRepositoryInterface } from "../../../../src/adapters/controllers/dtos/order-queue.repository";
-import { OrderQueueItem } from "../../../core/entities/order-queue-item";
+import { OrderQueueItem } from "../../../core/entities/OrderQueueItem";
 import { OrderQueueItemMapper } from "../mappers/order-queue-item.mapper";
 
 export class OrderQueueRepository implements OrderQueueRepositoryInterface {

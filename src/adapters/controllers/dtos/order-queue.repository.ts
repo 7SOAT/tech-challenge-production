@@ -1,5 +1,5 @@
 import { UUID } from "crypto";
-import { OrderQueueItem } from "../../../core/entities/order-queue-item";
+import { OrderQueueItem } from "../../../core/entities/OrderQueueItem";
 
 export interface OrderQueueRepositoryInterface {
   addOrderInQueue(orderId: UUID): Promise<OrderQueueItem>;

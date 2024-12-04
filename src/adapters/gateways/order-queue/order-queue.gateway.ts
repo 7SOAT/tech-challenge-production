@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { UUID } from "crypto";
 import { OrderQueueRepositoryInterface } from "../../../../src/adapters/controllers/dtos/order-queue.repository";
-import { OrderQueueItem } from "../../../core/entities/order-queue-item";
+import { OrderQueueItem } from "../../../core/entities/OrderQueueItem";
 import { OrderQueueGatewayInterface } from "../../../../src/core/usecases/ports/order-queue.gateway";
 
 @Injectable()

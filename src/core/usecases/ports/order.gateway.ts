@@ -1,5 +1,5 @@
 import { UUID } from "crypto";
-import { Order } from "../../entities/order";
+import { Order } from "../../entities/Order";
 
 export interface OrderGatewayInterface {
   getOrdersFromProvider(): Promise<Array<Order>>;

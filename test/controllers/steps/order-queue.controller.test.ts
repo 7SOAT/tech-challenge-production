@@ -4,8 +4,8 @@ import { OrderQueueRepositoryInterface } from '../../../src/adapters/controllers
 import { OrderProviderInterface } from '../../../src/adapters/controllers/dtos/order.provider';
 import { OrderQueueItemPresenter } from '../../../src/adapters/presenters/order-queue.presenter';
 import { UUID } from 'crypto';
-import { OrderQueueItem } from '../../../src/core/entities/order-queue-item';
-import { Order } from '../../../src/core/entities/order';
+import { OrderQueueItem } from '../../../src/core/entities/OrderQueueItem';
+import { Order } from '../../../src/core/entities/Order';
 
 const feature = loadFeature('./test/controllers/features/order-queue.controller.feature');
 
