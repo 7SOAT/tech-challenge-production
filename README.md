@@ -66,9 +66,8 @@ src
 </ol>
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
-
 <h2 id="miro"> MIRO </h2>
-Link: <a href="https://miro.com/welcomeonboard/M3R3Z0xXNFFwb200QTZueWZENjRrdXdRS0NQdzFwdzF1SFNCTHNYTmttMi9GOGZ6cmVOQmJoWWZhUGlKOFZkWnNKYWxrLzFIYlBldUxnT0VlTWoxRFJUclJ5YlBiU1IycHc5Smpnb0h1a0d0ZlJheWZ3ZTJhcU1HZjRPRjdtMmkhZQ==?share_link_id=370719952948"/>
+[Acessar Miro](https://miro.com/welcomeonboard/M3R3Z0xXNFFwb200QTZueWZENjRrdXdRS0NQdzFwdzF1SFNCTHNYTmttMi9GOGZ6cmVOQmJoWWZhUGlKOFZkWnNKYWxrLzFIYlBldUxnT0VlTWoxRFJUclJ5YlBiU1IycHc5Smpnb0h1a0d0ZlJheWZ3ZTJhcU1HZjRPRjdtMmkhZQ==?share_link_id=370719952948)
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
