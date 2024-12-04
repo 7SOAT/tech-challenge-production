@@ -67,6 +67,11 @@ src
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
+<h2 id="miro"> MIRO </h2>
+Link: <a href="https://miro.com/welcomeonboard/M3R3Z0xXNFFwb200QTZueWZENjRrdXdRS0NQdzFwdzF1SFNCTHNYTmttMi9GOGZ6cmVOQmJoWWZhUGlKOFZkWnNKYWxrLzFIYlBldUxnT0VlTWoxRFJUclJ5YlBiU1IycHc5Smpnb0h1a0d0ZlJheWZ3ZTJhcU1HZjRPRjdtMmkhZQ==?share_link_id=370719952948"/>
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
 <h2 id="requisitos"> 👤 Integrantes</h2>
 
 [<img src="https://avatars.githubusercontent.com/u/76217994?v=4" width=115 > <br> <sub> Aureo Alexandre </sub>](https://github.com/Aureo-Bueno) | [<img src="https://avatars.githubusercontent.com/u/97612275?v=4" width=115 > <br> <sub> Fauze Cavalari </sub>](https://github.com/devfauze) | [<img src="https://avatars.githubusercontent.com/u/53823656?v=4" width=115 > <br> <sub> Gabriella Andrade </sub>](https://github.com/GabiAndradeD) | [<img src="https://avatars.githubusercontent.com/u/61785785?v=4" width=115 > <br> <sub> Luiz H. L. Paino </sub>](https://github.com/luizhlpaino) |
