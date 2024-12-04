@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tc-production-microservice
+  labels:
+    app: tc-production-microservice
+spec:
+  replicas: 1  # Número de réplicas desejadas
+  selector:
+    matchLabels:
+      app: tc-production-microservice
+  template:
+    metadata:
+      labels:
+        app: tc-production-microservice
+    spec:
+      containers:
+        - name: tc-production-microservice
+          image: luizpainodev/tc-production-microservice:latest  # Substitua com a imagem do seu microserviço
+          ports:
+            - containerPort: 80  # A porta do contêiner será 80
+          env:
+            - name: ENVIRONMENT
+              value: "production"  # Variáveis de ambiente para o seu microserviço (se necessário)
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials
+                  key: host
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
