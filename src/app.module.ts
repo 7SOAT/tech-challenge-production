@@ -6,6 +6,7 @@ import { RouteModule } from './api/route.module';
 import { ControllersModule } from './adapters/controllers/controllers.module';
 import { OrderQueueRoute } from './api/order-queue/order-queue.route';
 import { OrderMicroserviceModule } from './externals/providers/order-microservice/order-microservice.module';
+import { HealthRoute } from './api/health/health.route';
 
 @Module({
   imports: [
@@ -22,7 +23,7 @@ import { OrderMicroserviceModule } from './externals/providers/order-microservic
     RouteModule.register({
       imports: [ControllersModule],
       providers: [],
-      controllers: [OrderQueueRoute],
+      controllers: [OrderQueueRoute, HealthRoute],
       exports: [],
     }),    
   ],
