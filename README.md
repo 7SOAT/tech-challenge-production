@@ -1,3 +1,6 @@
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=7SOAT_tech-challenge-production&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=7SOAT_tech-challenge-production)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=7SOAT_tech-challenge-production&metric=coverage)](https://sonarcloud.io/summary/new_code?id=7SOAT_tech-challenge-production)
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
