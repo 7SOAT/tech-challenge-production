@@ -1,13 +1,16 @@
-<p align="center">
-  <img src="https://i.ibb.co/nM93Y6b/Novo-Projeto.png" alt="Pos-tech logo">
-</p>
+<h1 align="center"> Tech Challenge Production 📦</h1>
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+<h2 id="quality-gate"> 🧪 Quality Gate </h2>
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=7SOAT_tech-challenge-production&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=7SOAT_tech-challenge-production)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=7SOAT_tech-challenge-production&metric=coverage)](https://sonarcloud.io/summary/new_code?id=7SOAT_tech-challenge-production)
 
-<h1 align="center">🍔🥤🍨 Sistema de autoatendimento de Fast Food 🍨🥤🍔</h1>
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<h2 id="microsservico">:pencil: Microsserviço de Produção</h2>
+<h2 id="quality-gate"> 📃 Description </h2>
+
 <p align="justify">
   Esse projeto consiste na criação de um microsserviço com recursos para atender as demandas da cozinha.
   Mantendo a fila de pedidos sempre atualizada e organizada.
@@ -66,12 +69,7 @@ src
 </ol>
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
-<h2 id="miro"> MIRO </h2>
-[Acessar Miro](https://miro.com/welcomeonboard/M3R3Z0xXNFFwb200QTZueWZENjRrdXdRS0NQdzFwdzF1SFNCTHNYTmttMi9GOGZ6cmVOQmJoWWZhUGlKOFZkWnNKYWxrLzFIYlBldUxnT0VlTWoxRFJUclJ5YlBiU1IycHc5Smpnb0h1a0d0ZlJheWZ3ZTJhcU1HZjRPRjdtMmkhZQ==?share_link_id=370719952948)
 
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+[![Acesse o Miro](https://cdn.prod.website-files.com/628e6648a47e6727d5c69a2a/62d856b5e550362034ed205f_miro%20logo.png)](https://miro.com/welcomeonboard/M3R3Z0xXNFFwb200QTZueWZENjRrdXdRS0NQdzFwdzF1SFNCTHNYTmttMi9GOGZ6cmVOQmJoWWZhUGlKOFZkWnNKYWxrLzFIYlBldUxnT0VlTWoxRFJUclJ5YlBiU1IycHc5Smpnb0h1a0d0ZlJheWZ3ZTJhcU1HZjRPRjdtMmkhZQ==?share_link_id=370719952948)
 
-<h2 id="requisitos"> 👤 Integrantes</h2>
 
-[<img src="https://avatars.githubusercontent.com/u/76217994?v=4" width=115 > <br> <sub> Aureo Alexandre </sub>](https://github.com/Aureo-Bueno) | [<img src="https://avatars.githubusercontent.com/u/97612275?v=4" width=115 > <br> <sub> Fauze Cavalari </sub>](https://github.com/devfauze) | [<img src="https://avatars.githubusercontent.com/u/53823656?v=4" width=115 > <br> <sub> Gabriella Andrade </sub>](https://github.com/GabiAndradeD) | [<img src="https://avatars.githubusercontent.com/u/61785785?v=4" width=115 > <br> <sub> Luiz H. L. Paino </sub>](https://github.com/luizhlpaino) |
-| :---: | :---: | :---: | :---: |
